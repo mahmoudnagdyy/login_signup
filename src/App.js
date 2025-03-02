@@ -27,7 +27,7 @@ function App() {
     const useremail = login_email.current.value;
     const userpassword = login_password.current.value;
 
-    axios.post('https://backend-jade-zeta.vercel.app/auth/login', { email: useremail, password: userpassword })
+    axios.post('https://backend-jade-zeta.vercel.app/login', { email: useremail, password: userpassword })
     .then((res) => {
 
       if(res.data.token){
@@ -80,7 +80,7 @@ function App() {
       return ;
     }
 
-    axios.post('https://backend-jade-zeta.vercel.app/auth/signup', { name: username, email: useremail, password: userpassword })
+    axios.post('https://backend-jade-zeta.vercel.app/signup', { name: username, email: useremail, password: userpassword })
     .then((res) => {
       setResponse(res.data.message)
       const x = window.setTimeout(() => {
