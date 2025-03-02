@@ -80,7 +80,7 @@ function App() {
       return ;
     }
 
-    axios.post('http://localhost:5000/auth/signup', { name: username, email: useremail, password: userpassword })
+    axios.post('https://backend-jade-zeta.vercel.app/auth/signup', { name: username, email: useremail, password: userpassword })
     .then((res) => {
       setResponse(res.data.message)
       const x = window.setTimeout(() => {
