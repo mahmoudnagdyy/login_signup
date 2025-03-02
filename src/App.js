@@ -1,15 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import axios from 'axios';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
 
   const [signShow, setSignShow] = useState(true);
   const [response, setResponse] = useState('');
   const [token, setToken] = useState('');
-
-  const url = window.location.href;
 
   const nav = useNavigate()
 
@@ -80,7 +78,7 @@ function App() {
       return ;
     }
 
-    axios.post('https://backend-jade-zeta.vercel.app/auth/signup', { name: username, email: useremail, password: userpassword })
+    axios.post('http://localhost:5000/auth/signup', { name: username, email: useremail, password: userpassword })
     .then((res) => {
       setResponse(res.data.message)
       const x = window.setTimeout(() => {
