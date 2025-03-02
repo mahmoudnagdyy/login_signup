@@ -1,0 +1,64 @@
+*{
+  margin: 0;
+}
+
+body{
+  background-color: #f8f9fd;
+  font-family: "Lato", serif;
+}
+
+
+.big_container{
+  width: 900px;
+  margin-top: 150px;
+  position: relative;
+  box-shadow: -4px 7px 32px 0px rgba(145,143,145,0.53);
+  border-radius: 30px;
+}
+
+.login_container{
+  width: 450px;
+  height: 500px;
+}
+
+.login_container button{
+  background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+}
+
+.login_container button:hover{
+  background: #f35588;
+}
+
+.signup_container{
+  width: 450px;
+  height: 500px;
+}
+
+.signup_container button{
+  background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+}
+
+.signup_container button:hover{
+  background: #f35588;
+}
+
+.horizontal_div{
+  width: 450px;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+  transition-duration: 1s;
+}
+
+.signup_show{
+  left: 0;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.signin_show{
+  left: 50%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
