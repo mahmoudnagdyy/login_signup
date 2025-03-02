@@ -21,13 +21,14 @@ function App() {
   const signUp_email = useRef('')
   const signUp_password = useRef('')
 
+  axios.defaults.withCredentials = true;
 
   const loginHandler = () => {
 
     const useremail = login_email.current.value;
     const userpassword = login_password.current.value;
 
-    axios.post('http://localhost:5000/auth/login', { email: useremail, password: userpassword })
+    axios.post('https://backend-jade-zeta.vercel.app/auth/login', { email: useremail, password: userpassword })
     .then((res) => {
 
       if(res.data.token){
@@ -80,7 +81,7 @@ function App() {
       return ;
     }
 
-    axios.post('http://localhost:5000/auth/signup', { name: username, email: useremail, password: userpassword })
+    axios.post('https://backend-jade-zeta.vercel.app/auth/signup', { name: username, email: useremail, password: userpassword })
     .then((res) => {
       setResponse(res.data.message)
       const x = window.setTimeout(() => {
@@ -88,12 +89,14 @@ function App() {
         setResponse('')
       }, 1500)
     })
+    
+    if(response === 'User created successfully'){
+      nav('ConfirmEmail')
+    }
 
     signUp_name.current.value = ''
     signUp_email.current.value = ''
     signUp_password.current.value = ''
-    
-    nav('ConfirmEmail')
 
   }
 
