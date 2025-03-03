@@ -25,7 +25,7 @@ function App() {
     const useremail = login_email.current.value;
     const userpassword = login_password.current.value;
 
-    axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, { email: useremail, password: userpassword })
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, { email: useremail, password: userpassword }, {withCredentials: false})
     .then((res) => {
 
       if(res.data.token){
