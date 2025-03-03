@@ -25,7 +25,7 @@ function App() {
     const useremail = login_email.current.value;
     const userpassword = login_password.current.value;
 
-    axios.post('http://localhost:5000/auth/login', { email: useremail, password: userpassword })
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, { email: useremail, password: userpassword })
     .then((res) => {
 
       if(res.data.token){
@@ -78,7 +78,7 @@ function App() {
       return ;
     }
 
-    axios.post('http://localhost:5000/auth/signup', { name: username, email: useremail, password: userpassword })
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/signup`, { name: username, email: useremail, password: userpassword })
     .then((res) => {
       setResponse(res.data.message)
       const x = window.setTimeout(() => {
@@ -104,6 +104,9 @@ function App() {
       window.localStorage.setItem('token', token)
       nav('Home')
     }
+
+    console.log(process.env);
+    
     
     
     
