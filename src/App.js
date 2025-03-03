@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
- 
-
 
 function App() {
 
@@ -27,7 +25,7 @@ function App() {
     const useremail = login_email.current.value;
     const userpassword = login_password.current.value;
 
-    axios.post(`auth/login`, { email: useremail, password: userpassword })
+    axios.post('http://localhost:5000/auth/login', { email: useremail, password: userpassword })
     .then((res) => {
 
       if(res.data.token){
@@ -80,7 +78,7 @@ function App() {
       return ;
     }
 
-    axios.post(`auth/signup`, { name: username, email: useremail, password: userpassword })
+    axios.post('http://localhost:5000/auth/signup', { name: username, email: useremail, password: userpassword })
     .then((res) => {
       setResponse(res.data.message)
       const x = window.setTimeout(() => {
@@ -101,7 +99,6 @@ function App() {
 
 
   useEffect(() => {
-    console.log(`${process.env.BACKEND_URL}`);
     
     if(token.length){
       window.localStorage.setItem('token', token)
